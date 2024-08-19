@@ -28,9 +28,8 @@ proc fixName*(name: string): string =
 
 proc generateStylizedName*(name: string, namespaces: seq[string]): string =
     let namespaces = collect:
-        var cnt = 0
         for namespace in namespaces:
-            if cnt > 1: toLowerAscii(namespace) else: capitalizeAscii(namespace)
+            capitalizeAscii(namespace)
     if name.toLower() == "bool":
         return name.toLower
     return join(namespaces & capitalizeAscii(fixName(name)))
